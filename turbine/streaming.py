@@ -1,5 +1,6 @@
 from urlparse import urljoin
 from urllib import urlencode
+from cStringIO import StringIO
 
 import pycurl
 
@@ -14,9 +15,17 @@ class Stream(object):
         self.curl.setopt(pycurl.USERPWD, '%s:%s' % (username, password))
         self.curl.setopt(pycurl.WRITEFUNCTION, self.on_receive)
 
+        self.buffer = StringIO()
+
     def on_receive(self, data):
-        #TODO
-        print data
+        self.buffer.write(data)
+
+        if data.endswith('\r\n'):
+            payload = self.buffer.getvalue().strip()
+            self.buffer = StringIO()
+
+            if payload:
+                self.consumer(payload)
 
     def launch(self, method, parameters=None):
         self.curl.setopt(pycurl.URL, urljoin(self.BASE_URL, method))
