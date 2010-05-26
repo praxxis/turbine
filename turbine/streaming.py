@@ -40,3 +40,4 @@ class Stream(object):
         if users:
             parameters['follow'] = ','.join([str(u) for u in users])
         self.launch('statuses/filter.json', parameters)
+
