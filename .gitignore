@@ -1,2 +1,14 @@
+.idea
+.DS_Store
+*.tmproj
+
+*.egg-info
 *.pyc
+*.db
 *.swp
+*.swo
+*.zip
+*.egg
+*.orig
+*~
+

@@ -1,9 +1,9 @@
 Turbine
 =======
-A framework for harvesting of tweets from the Twitter streaming API.
+A lightweight framework for recieving tweets from the Twitter streaming API.
 
 Meta
 ----
 
-* Author: Joshua Roesslein
+* Original author: Joshua Roesslein
 * License: MIT
