@@ -51,7 +51,7 @@ class Stream(object):
 		if parameters:
 			self.curl.setopt(pycurl.POST, True)
 			self.curl.setopt(pycurl.POSTFIELDS, urlencode(parameters))
-		print urlencode(parameters)
+
 		self.curl.perform()
 
 	def filter(self):
