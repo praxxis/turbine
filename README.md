@@ -1,6 +1,6 @@
 Turbine
 =======
-A lightweight framework for recieving tweets from the Twitter streaming API.
+A lightweight framework for receiving tweets from the Twitter streaming API.
 
 Meta
 ----
