@@ -21,12 +21,24 @@ class TestStream():
 		Stream(consumer=callback, username=self.TEST_USERNAME, password=self.TEST_PASSWORD)
 
 	@with_setup(None, None)
-	def test_consumer(self):
+	def test_consumer_function(self):
 		def callback(x):
 			pass
 
 		stream = Stream(consumer=callback, username=self.TEST_USERNAME, password=self.TEST_PASSWORD)
 		
+		assert stream
+
+	@with_setup(None, None)
+	def test_consumer_class(self):
+		class ConsumerTest():
+			def __call__(self, *args, **kwargs):
+				pass
+
+		consumer = ConsumerTest()
+
+		stream = Stream(consumer=consumer, username=self.TEST_USERNAME, password=self.TEST_PASSWORD)
+
 		assert stream
 
 	def test_reset(self):
